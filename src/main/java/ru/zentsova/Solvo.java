@@ -2,8 +2,7 @@ package ru.zentsova;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.zentsova.request.Request;
-
+import ru.zentsova.request.ARequest;
 
 public class Solvo {
 
@@ -11,7 +10,7 @@ public class Solvo {
 
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
-        taskManager.run(new Request(1));
+        taskManager.run(new ARequest(1));
 
 //        try {
 //            System.out.println("attempt to shutdown executor");
