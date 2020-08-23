@@ -3,31 +3,18 @@ package ru.zentsova;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.zentsova.request.ARequest;
+import ru.zentsova.request.BRequest;
 
 public class Solvo {
-
-    private static final Logger log = LogManager.getLogger(Solvo.class);
 
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
         taskManager.run(new ARequest(1));
-
-//        try {
-//            System.out.println("attempt to shutdown executor");
-//            executor.shutdown();
-//            executor.awaitTermination(5, TimeUnit.SECONDS);
-//        }
-//        catch (InterruptedException e) {
-//            System.err.println("tasks interrupted");
-//        }
-//        finally {
-//            if (!executor.isTerminated()) {
-//                System.err.println("cancel non-finished tasks");
-//            }
-//            executor.shutdownNow();
-//            System.out.println("shutdown finished");
-//        }
-
+        taskManager.run(new BRequest(2));
+        taskManager.run(new ARequest(3));
+        taskManager.run(new BRequest(4));
+        taskManager.run(new ARequest(4));
+        taskManager.run(new BRequest(5));
     }
 
 }

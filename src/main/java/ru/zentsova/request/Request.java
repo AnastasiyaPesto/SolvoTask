@@ -1,14 +1,18 @@
 package ru.zentsova.request;
 
+import java.util.Formatter;
 import java.util.concurrent.Callable;
 
 public class Request implements Callable<Integer> {
 
     /** Sign */
     private int sign;
+    /** Name of request */
+    private String name;
 
-    public Request(int sign) {
+    public Request(int sign, String name) {
         this.sign = sign;
+        this.name = name;
     }
 
     public int getSign() {
@@ -19,8 +23,12 @@ public class Request implements Callable<Integer> {
         this.sign = sign;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
-    public Integer call() throws Exception {
+    public Integer call() {
         return null;
     }
 
