@@ -1,26 +1,29 @@
 package ru.zentsova.request;
 
-import java.util.Formatter;
 import java.util.concurrent.Callable;
 
 public class Request implements Callable<Integer> {
 
-    /** Sign */
-    private int sign;
-    /** Name of request */
+    /** Признак */
+    private int x;
+    /** Название запроса */
     private String name;
 
-    public Request(int sign, String name) {
-        this.sign = sign;
+
+    protected final static String S_REQUEST_STARTED_FMT = "Обработка запроса \"%s\" запущена; X = %s";
+    protected final static String S_REQUEST_FINISHED_FMT = "Обработка запроса \"%s\" завершена; X = %s";
+
+    public Request(int x, String name) {
+        this.x = x;
         this.name = name;
     }
 
-    public int getSign() {
-        return sign;
+    public int getX() {
+        return x;
     }
 
-    public void setSign(int sign) {
-        this.sign = sign;
+    public void setX(int x) {
+        this.x = x;
     }
 
     public String getName() {

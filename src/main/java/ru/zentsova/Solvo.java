@@ -1,7 +1,6 @@
 package ru.zentsova;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import ru.zentsova.manager.TaskManager;
 import ru.zentsova.request.ARequest;
 import ru.zentsova.request.BRequest;
 
@@ -15,6 +14,9 @@ public class Solvo {
         taskManager.run(new BRequest(4));
         taskManager.run(new ARequest(4));
         taskManager.run(new BRequest(5));
+        taskManager.run(new ARequest(5));
+
+        taskManager.awaitTerminationAfterShutdown();
     }
 
 }
